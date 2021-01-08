@@ -2,7 +2,9 @@ import qbs
 
 CppApplication {
     Depends { name: "Qt.quick" }
-
+    Depends { name: "Qt.sql" }
+    Depends { name: "Qt.widgets" }
+    Depends { name: "Qt.quickcontrols2" }
     // Additional import path used to resolve QML modules in Qt Creator's code model
     property pathList qmlImportPaths: []
 
@@ -22,10 +24,13 @@ CppApplication {
     ]
 
     files: [
+        "dtbconnection.cpp",
+        "dtbconnection.h",
         "main.cpp",
-        "main.qml",
         "qml.qrc",
         "exmysql_en_AS.ts",
+        "services.cpp",
+        "services.h",
     ]
 
     Group {     // Properties for the produced executable
@@ -33,4 +38,5 @@ CppApplication {
         qbs.install: true
         qbs.installDir: "bin"
     }
+
 }
