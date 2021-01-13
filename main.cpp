@@ -1,12 +1,13 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtSql/QSqlDatabase>
-#include <QMessageBox>
 #include <QtDebug>
 #include <QSqlError>
 #include <QQuickStyle>
 #include <QtQuick/QQuickView>
+
 #include "services.h"
+#include "mymqtt.h"
 
 void connectDTB()
 {
@@ -45,7 +46,7 @@ int main(int argc, char *argv[])
     //connectDTB();
     Services ser(context);
     context->setContextProperty("Services", &ser);
-
+    QMqttClient *client = new QMqttClient(nullptr);
     //context->setContextProperty("Table", ser.getTransactionData(""));
     engine.load(url);
 

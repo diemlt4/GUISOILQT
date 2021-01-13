@@ -3,7 +3,8 @@ import qbs
 CppApplication {
     Depends { name: "Qt.quick" }
     Depends { name: "Qt.sql" }
-    Depends { name: "Qt.widgets" }
+    Depends { name: "Qt.mqtt" }
+    Depends { name: "Qt.network" }
     Depends { name: "Qt.quickcontrols2" }
     // Additional import path used to resolve QML modules in Qt Creator's code model
     property pathList qmlImportPaths: []
@@ -31,6 +32,8 @@ CppApplication {
         "exmysql_en_AS.ts",
         "services.cpp",
         "services.h",
+        "mymqtt.cpp",
+        "mymqtt.h"
     ]
 
     Group {     // Properties for the produced executable
